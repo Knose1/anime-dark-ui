@@ -1,2 +1,129 @@
-@import "./styles/skinning.less";
-@import "./styles/structure.less";
+@import "./skin-settings.less";
+
+
+/********************************/
+/*          Text Color          */
+/********************************/
+
+    //workspace text color (file / tab)
+    atom-workspace {
+        color:hsl(0, 0%, 75%);
+    }
+
+    //Settings item active color
+    .settings-view .config-menu .nav > li.active > a {
+        color:#fff;
+    }
+
+    //Tree view
+    atom-workspace .list-item {
+            //color:inherit;
+            transition: 0.3s linear;
+    }
+    atom-workspace .list-item:hover {
+            color:hsl(0, 0%, 95%);
+    }
+    atom-workspace .list-item.status-modified:hover {
+            color: hsl(23, 100%, 82%);
+    }
+    atom-workspace .list-item.status-added:hover, .status-added *:hover {
+            color: hsl(146, 100%, 72%)
+    }
+
+@atome-dock-color : rgba(70,70,70, 0.6);
+
+//Dock arrows (> and <)
+.atom-dock-toggle-button .atom-dock-toggle-button-inner{
+    background:@atome-dock-color;
+    background-color:@atome-dock-color;
+    border: 1px solid @atome-dock-color;
+    color:rgba(200, 200, 200, 0.8);
+}
+
+
+
+//Pan tab-bar
+.atom-dock-content-wrapper {
+    .left {
+        margin-right:-5px;
+    }
+    .right{
+        margin-left:-5px;
+    }
+}
+//Tab Bar
+
+.tab-bar {
+    background-color:rgba(255, 255, 255, 0.08);
+    transition:1s linear background-color;
+    height: 22px;
+
+    div {
+        font-size:13px;
+        position:relative;
+        text-align: center;
+    }
+    li {
+        border-left:1px black solid;
+        border-right:1px black solid;
+    }
+    li.active {
+        background-color:rgba(255, 255, 255, 0.4);
+    }
+
+
+
+    //Mask the cross for on unactive tabs
+    .tab .close-icon {
+        visibility:hidden;
+    }
+
+    //Show the cross for on unactive tabs :hover
+    :hover .close-icon {
+        visibility:visible;
+    }
+
+    //Modified tab content (file)
+    .tab.modified:not(:hover) .close-icon {
+        visibility:visible;
+    }
+}
+.tab-bar[h=22px] {
+    height: 22px;
+    .icon::before {
+        font-size:14px;
+        top: 10px;
+    }
+
+    div {
+        font-size:13px;
+    }
+
+    .tab.modified:not(:hover) .close-icon {
+        top:7px;
+        bottom:7px;
+    }
+}
+
+.tab-bar[h=30px] {
+    height: 30px;
+    div {
+        font-size:14px;
+        top:3px
+    }
+
+    .tab.modified:not(:hover) .close-icon {
+        top:11px;
+        bottom:11px;
+    }
+}
+
+//Pan Divider
+.atom-dock-resize-handle, .atom-dock-resize-handle-resizable {
+    background-color:rgba(121, 120, 131, 0);
+    width:1px;
+}
+
+.close-icon {
+
+}
