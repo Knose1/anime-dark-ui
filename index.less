@@ -1,6 +1,11 @@
 @import "./skin-settings.less";
 @import "./transition.less";
 
+//current git branch (tooltype)
+.tooltip-inner {
+	max-width: 500px;
+}
+
 /*********************/
 /*  GLOBAL SLIDEBAR  */
 /*********************/
@@ -25,6 +30,35 @@
 * ::-webkit-scrollbar-thumb {
 	border:none;
 	background:#7cf8ae;
+}
+
+/*****************************************************/
+/*                      Welcome                      */
+/*****************************************************/
+
+.welcome {
+	color: inherit;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.welcome-logo {
+	color:#55c4b0
+}
+
+.welcome-card {
+	background-color:@invisible;
+	border-color: #444;
+	color: #aaa;
+}
+.welcome-card:hover {
+	background-color:rgba(37, 37, 37, 0.65);
+}
+.welcome-summary:hover {
+	color:#eee;
+}
+
+.welcome-highlight {
+	color:#51cda6;
 }
 
 /****************************************************/
@@ -241,6 +275,12 @@ atom-workspace-axis.horizontal{
 /*                      Text Color                      */
 /********************************************************/
 
+	//theme description
+	.settings-view .packages .theme-description {
+		font-size: 12px;
+		color: #87a3ac;
+		font-weight: normal;
+	}
     //settings text
     .settings-view .scroll-view {
         color:#bbb;
@@ -268,6 +308,14 @@ atom-workspace-axis.horizontal{
 			color:#444;
 		}
 
+		//Setting head <a> (when modifing theme settings for example)
+		.breadcrumb > li a {
+			color:#ddd
+		}
+		.breadcrumb > .active a {
+			color:#51cda6;
+		}
+
 		//package
 		.package-detail .package-card, .package-card {
 			background-color:@invisible;
@@ -279,28 +327,28 @@ atom-workspace-axis.horizontal{
 			background-color:rgba(37, 37, 37, 0.65);
 		}
 
-		.package-name {
-			color:#51cda6
+		.package-name, .package-card .package-name, .highlight {
+			color:#51cda6;
 		}
 
     }
 
     //workspace text color (file / tab and more)
-    atom-workspace {
+	atom-workspace {
         color:hsl(0, 0%, 75%);
     }
-    a.icon, a {
-        color:hsl(0, 0%, 50%);
-    }
-    .settings-view .config-menu .nav > li > a:hover {
-        color:hsl(0,0%, 750%)
-    }
 
+	a.icon, a {
+		color:hsl(0, 0%, 50%);
+	}
+	.settings-view .config-menu .nav > li > a:hover {
+		color:hsl(0,0%, 750%)
+	}
 
-    //Settings item active color
-    .settings-view .config-menu .nav > li.active > a {
-        color:#fff;
-    }
+	//Settings item active color
+	.settings-view .config-menu .nav > li.active > a {
+		color:#fff;
+	}
 
 	//Setting sub-section
 	.settings-view .sub-section .sub-section-heading{
@@ -308,9 +356,11 @@ atom-workspace-axis.horizontal{
 	}
 
     //Tree view
-    atom-workspace .list-item {
-        //color:inherit;
+	atom-workspace .list-item {
         transition: 0.3s linear;
+	}
+    atom-workspace .list-item:not(.status-modified):not(.status-added):not(:hover) {
+        color:#bfbfbf;
     }
     atom-workspace .list-item:hover {
         color:hsl(0, 0%, 95%);
@@ -318,9 +368,17 @@ atom-workspace-axis.horizontal{
     atom-workspace .list-item.status-modified:hover {
         color: hsl(23, 100%, 82%);
     }
-    atom-workspace .list-item.status-added:hover, .status-added *:hover {
+
+    atom-workspace .list-item.status-added:hover {
         color: hsl(146, 100%, 72%)
     }
+
+	.status-modified:not(:hover) {
+		color:#f78a46;
+	}
+	.status-added:not(:hover) {
+		color:#1fe977;
+	}
 
     //bottom tabs
     .grammar-status a, .grammar-status a:hover, .encoding-status a, .encoding-status a:hover, status-bar .cursor-position a, status-bar .cursor-position a:hover, status-bar a, status-bar a:hover {

@@ -64,9 +64,11 @@ transElm = {
         return document.querySelector("body bg-transition");
 
     add: () ->
-        document.body.appendChild(document.createElement("bg-transition"))
+        document.body.appendChild(transElm.it() || document.createElement("bg-transition"))
     remove: () ->
-        document.body.removeChild(document.querySelector("body bg-transition"));
+        document.querySelectorAll("body bg-transition").forEach (e) ->
+            document.body.removeChild(e);
+
         try
             clearTimeout(transTimeout)
         catch error
