@@ -15,6 +15,115 @@
         "atom": ">=1.0.0 <2.0.0"
     },
     "configSchema": {
+        "backgrounds": {
+            "title": "Background-images",
+            "type": "object",
+            "order": 1,
+            "properties": {
+                "1":{
+                        "order": 1,
+                        "description": "Change the background image. You can precise up to 10 background to have multiple background. (Works with Background display time)",
+                        "default": "https://wallpapersite.com/images/wallpapers/anime-girl-3840x2160-fire-angel-4k-8040.jpg",
+                        "type": "string"
+                },
+                "2":{
+                        "order": 2,
+                        "default": "https://i.pinimg.com/originals/73/d3/77/73d3776d73adcbe4b55f10dd7ddfc778.jpg",
+                        "type": "string"
+                },
+                "3":{
+                        "order": 3,
+                        "default": "null",
+                        "type": "string"
+                },
+                "4":{
+                        "order": 4,
+                        "default": "null",
+                        "type": "string"
+                },
+                "5":{
+                        "order": 5,
+                        "default": "null",
+                        "type": "string"
+                },
+                "6":{
+                        "order": 6,
+                        "default": "null",
+                        "type": "string"
+                },
+                "7":{
+                        "order": 7,
+                        "default": "null",
+                        "type": "string"
+                },
+                "8":{
+                        "order": 8,
+                        "default": "null",
+                        "type": "string"
+                },
+                "9":{
+                        "order": 9,
+                        "default": "null",
+                        "type": "string"
+                },
+                "10":{
+                        "order": 10,
+                        "default": "null",
+                        "type": "string"
+                }
+
+            }
+        },
+        "darkObject": {
+            "order": 2,
+            "title": "Dark Backgrounds",
+            "type": "object",
+            "properties": {
+                "dark": {
+                    "title":"Dark Background percentage",
+                    "description":"The alpha percentage for black color background (over the background-image).",
+                    "order": 1,
+                    "type": "integer",
+                    "default":70,
+                    "minimum":"0",
+                    "maximum":"100"
+                },
+                "dark_settings": {
+                    "title":"Dark setting Background percentage",
+                    "description":"Same as **Dark Background percentage** but for the setting panel.",
+                    "order": 2,
+                    "type": "integer",
+                    "default":80,
+                    "minimum":"0",
+                    "maximum":"100"
+                }
+            }
+        },
+        "timing": {
+            "order": 3,
+            "title": "Timing",
+            "type": "object",
+            "properties": {
+                "timer": {
+                    "title": "Background timer",
+                    "description": "Time in minutes before the background is switched. Set it to 0 to have a random background",
+                    "type": "integer",
+                    "default":0,
+                    "order": 1,
+                    "minimum":"0",
+                    "maximum":"60"
+                },
+                "transiton": {
+                    "title": "Transition duration",
+                    "description": "The duration of the background transition in seconds",
+                    "type": "number",
+                    "default":1,
+                    "order": 2,
+                    "minimum":"0",
+                    "maximum":"30"
+                }
+            }
+        },
         "tab": {
             "title": "Tab Size",
             "description": "Change the tab height for the UI.",
@@ -24,7 +133,7 @@
                 "soft",
                 "large"
             ],
-        "order": 1
+            "order": 4
         }
     }
 }

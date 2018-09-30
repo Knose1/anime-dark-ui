@@ -1,0 +1,65 @@
+/*
+*   You can change the default settings here
+*/
+
+//all
+@invisible : rgba(0,0,0,0);
+
+
+/****************************************************/
+/*                       BODY                       */
+/****************************************************/
+
+    @background-image-overlay : rgba(0,0,0,0.7);
+    @background-image : url(https://wallpapersite.com/images/wallpapers/anime-girl-3840x2160-fire-angel-4k-8040.jpg) ;
+
+
+/**********************************************************/
+/*                       TEXTEDITOR                       */
+/**********************************************************/
+
+    @editor-background : @invisible;
+
+    /******************/
+	/*   HIGHLIGHTS   */
+	/******************/
+
+        @highlights-background-color: hsla(179, 70%, 45%, 0.1);
+        /*@highlights-background-color: rgba(100, 100, 100, 0.3);*/
+
+    /*********************/
+	/*  LEFT NUMBER BAR  */
+	/*********************/
+
+        //default
+        @number-bar-default-background : rgba(0,0,0,0.5);
+        @number-bar-default-color: inherit;
+
+        //selected
+        @number-bar-selected-color : #85f18f;
+        @number-bar-selected-background : hsla(170, 100%, 50%, 0.1);
+        @number-bar-selected-border-right : rgba(0, 255, 90,0.5) solid 1px;
+
+    /***********************/
+	/*  Git modifications  */
+	/***********************/
+
+        //default
+            //adding
+                @git-line-added-border-left: 1px solid green;
+                @git-line-added-background-color: hsla(170, 100%, 50%, 0.05);
+
+            //modified
+                @git-line-modified-border-left: 1px solid orange;
+				@git-line-modified-background-color: rgba(255, 165, 0, 0.05);
+
+        //selected
+            //adding
+                @selected-git-line-added-color:inherit;
+                @selected-git-line-added-border-left: inherit;
+                @selected-git-line-added-background-color: inherit;
+
+            //modified
+                @selected-git-line-modified-color:inherit;
+                @selected-git-line-modified-border-left: inherit;
+                @selected-git-line-modified-background-color: inherit;
