@@ -3,4 +3,4 @@
 ![Screen main](./screen/main.jpg)  
 
 ### Settings
-![Screen settings](./screen/settings.jpg)
+![Screen settings](./screen/settings.JPG)
