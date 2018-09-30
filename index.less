@@ -1,42 +1,409 @@
 @import "./skin-settings.less";
+@import "./transition.less";
+
+//current git branch (tooltype)
+.tooltip-inner {
+	max-width: 500px;
+}
+
+/*********************/
+/*  GLOBAL SLIDEBAR  */
+/*********************/
+
+* ::-webkit-scrollbar-track {
+	background: rgba(40, 44, 52, 0);
+}
+* ::-webkit-scrollbar-thumb {
+	border-color: rgb(0, 0, 0, 0);
+	background: #7cf8ae;
+	border-radius:10px;
+}
+* ::-webkit-scrollbar-corner {
+	background: rgba(40, 44, 52, 0);
+}
+
+* ::-webkit-scrollbar {
+	width:5px;
+	height:5px;
+}
+
+* ::-webkit-scrollbar-thumb {
+	border:none;
+	background:#7cf8ae;
+}
+//Github issue
+.github-IssueishDetailView {
+	color: #333;
+}
+
+/*****************************************************/
+/*                      Welcome                      */
+/*****************************************************/
+
+.welcome {
+	color: inherit;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.welcome-logo {
+	color:#55c4b0
+}
+
+.welcome-card {
+	background-color:@invisible;
+	border-color: #444;
+	color: #aaa;
+}
+.welcome-card:hover {
+	background-color:rgba(37, 37, 37, 0.65);
+}
+.welcome-summary:hover {
+	color:#eee;
+}
+
+.welcome-highlight {
+	color:#51cda6;
+}
+
+/****************************************************/
+/*                       BODY                       */
+/****************************************************/
+
+html {
+	background: @background-image;
+	background-size: cover;
+	position: fixed;
+	opacity:1;
+}
+
+body {
+	background-size: cover;
+	position: fixed;
+	opacity:1;
+	background-color: @invisible;
+}
+
+atom-workspace.workspace.scrollbars-visible-always {
+	transition:1s linear;
+	background-color: @background-image-overlay;
+}
+
+atom-workspace-axis.horizontal{
+	border-bottom: hsl(213, 22%, 48%) solid 1px;
+	padding-bottom: 4px;
+}
+
+/**********************************************************/
+/*                       TEXTEDITOR                       */
+/**********************************************************/
+
+	//Editor Background
+	atom-workspace, atom-text-editor {
+		background-color: @editor-background;
+	}
+
+	/******************/
+	/*   HIGHLIGHTS   */
+	/******************/
+
+		//Selection
+		atom-text-editor div div.scroll-view div div.lines div.highlights *{
+			background-color:@highlights-background-color;
+		}
+
+	/*********************/
+	/*  LEFT NUMBER BAR  */
+	/*********************/
+
+	div.gutter.line-numbers {
+		width:65px;
+		/*text-align: left;*/
+	}
+
+	//background
+	atom-text-editor .gutter {
+		color: @number-bar-default-color;
+		background-color: @number-bar-default-background;
+
+	}
+
+	//background when selection || selected
+	atom-text-editor .gutter .line-number.cursor-line {
+		color: @number-bar-selected-color;
+    	background-color: @number-bar-selected-background;
+		border-right: @number-bar-selected-border-right;
+	}
+
+	/***********************/
+	/*  Git modifications  */
+	/***********************/
 
 
-/********************************/
-/*          Text Color          */
-/********************************/
+	//Not selected
+		//adding
+			atom-text-editor .gutter .line-number.git-line-added{
+				border-left: @git-line-added-border-left;
+				background-color: @git-line-added-background-color;
+			}
+		//modified
+			atom-text-editor .gutter .line-number.git-line-modified {
+				border-left: @git-line-modified-border-left;
+				background-color: @git-line-modified-background-color;
+			}
 
-    //workspace text color (file / tab)
-    atom-workspace {
+	/**************/
+	/*  SLIDEBAR  */
+	/**************/
+
+	.scrollbars-visible-always atom-text-editor ::-webkit-scrollbar-track {
+    	background: rgba(40, 44, 52, 0);
+	}
+	.scrollbars-visible-always atom-text-editor ::-webkit-scrollbar-thumb {
+	    border-color: rgb(0, 0, 0, 0);
+    	background: #7cf8ae;
+		border-radius:10px;
+	}
+	.scrollbars-visible-always atom-text-editor ::-webkit-scrollbar-corner {
+		background: rgba(40, 44, 52, 0);
+	}
+
+	.scrollbars-visible-always atom-text-editor ::-webkit-scrollbar {
+		width:5px;
+		height:5px;
+	}
+
+	.scrollbars-visible-always ::-webkit-scrollbar-thumb {
+		border:none;
+		background:#7cf8ae;
+	}
+
+
+
+/********************************************************/
+/*                       Ctrl + F                       */
+/********************************************************/
+	.tool-panel, .panel, atom-panel {
+	    background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	atom-text-editor[mini].editor.mini {
+	    background-color: hsl(210, 9%, 23%);
+	}
+    //Highlights
+	atom-text-editor .find-result .region.region.region, atom-text-editor .current-result .region.region.region {
+	    background-color: rgba(82, 139, 255, 0.13);
+	}
+
+/********************************************************/
+/*                    SETTINGS PANEL                    */
+/********************************************************/
+
+	//MarkdownPreviewView
+	.settings-view .package-readme h1, .settings-view .package-readme h2, .settings-view .package-readme h3, .settings-view .package-readme h4 {
+		color:#fff
+	}
+
+	//button
+	.btn {
+		background-color:rgba(44, 51, 58, 0.7);
+	}
+
+	//Main background
+	section.settings-panel,div.panels-item,atom-pane-container atom-pane .item-views .pane-item:not(.styleguide){
+    	background-color: @invisible;
+    }
+
+   //Content background
+    atom-pane-container atom-pane .item-views .pane-item:not(.styleguide) div.panels {
+    	background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    //bar-left
+    atom-pane-container atom-pane .item-views .pane-item:not(.styleguide) div.config-menu {
+    	background-color: rgba(0, 0, 0, 0.7);
+    }
+
+	//bar-left hovered item
+    atom-pane-container atom-pane .item-views .pane-item:not(.styleguide) div.config-menu ul li:hover a {
+    	background-color: rgba(10, 30, 50, 0.5);
+    }
+
+	//bar-left selected item
+    atom-pane-container atom-pane .item-views .pane-item:not(.styleguide) div.config-menu ul li.active a{
+    	background-color: rgba(10, 50, 50, 0.5);
+    }
+
+	//Open config folder button
+	atom-pane-container atom-pane .item-views .pane-item {
+		color:hsla(0, 0%, 60%, 1);
+	}
+
+	//Setting Selector
+	.settings-view select.form-control {
+    	color: #ccc;
+    	border-color: #777;
+    	background-color: #333;
+	}
+
+	.settings-view select.form-control:hover, .settings-view select.form-control:focus {
+		background-color:#444;
+	}
+
+	.settings-view .themes-picker-item .btn {
+    	height: 32px;
+    	padding-top: 4px; //This value is ok on a full HD screen but may be modified for smaller screen
+	}
+
+	/**************/
+	/*  SLIDEBAR  */
+	/**************/
+
+	.settings-view ::-webkit-scrollbar-track {
+    	background: rgba(40, 44, 52, 0);
+	}
+	.settings-view ::-webkit-scrollbar-thumb {
+	    border-color: rgb(0, 0, 0, 0);
+    	background: #7cf8ae;
+		border-radius:10px;
+	}
+	.settings-view ::-webkit-scrollbar-corner {
+		background: rgba(40, 44, 52, 0);
+	}
+
+	.settings-view ::-webkit-scrollbar {
+		width:5px;
+		height:5px;
+	}
+
+	.settings-view ::-webkit-scrollbar-thumb {
+		border:none;
+		background:#7cf8ae;
+	}
+
+/********************************************************/
+/*                      Text Color                      */
+/********************************************************/
+
+	//theme description
+	.settings-view .packages .theme-description {
+		font-size: 12px;
+		color: #87a3ac;
+		font-weight: normal;
+	}
+    //settings text
+    .settings-view .scroll-view {
+        color:#bbb;
+        margin-left:10px
+    }
+    .settings-view {
+        //header
+        section .section-heading, .section .section-heading {
+            color:white;
+        }
+        //main
+        .text {
+            color:hsl(0, 0%, 75%);
+        }
+
+        //Setting title
+        .checkbox .setting-title {
+            color:#83bcd9;
+        }
+        .placeholder-text {
+            color:#999;
+        }
+
+		.settings-panel label {
+			color:#444;
+		}
+
+		//Setting head <a> (when modifing theme settings for example)
+		.breadcrumb > li a {
+			color:#ddd
+		}
+		.breadcrumb > .active a {
+			color:#51cda6;
+		}
+
+		//package
+		.package-detail .package-card, .package-card {
+			background-color:@invisible;
+			border-color: #444;
+			color: #aaa;
+		}
+
+		.package-detail .package-card:hover, .package-card:hover {
+			background-color:rgba(37, 37, 37, 0.65);
+		}
+
+		.package-name, .package-card .package-name, .highlight {
+			color:#51cda6;
+		}
+
+    }
+
+    //workspace text color (file / tab and more)
+	atom-workspace {
         color:hsl(0, 0%, 75%);
     }
 
-    //Settings item active color
-    .settings-view .config-menu .nav > li.active > a {
-        color:#fff;
-    }
+	a.icon, a {
+		color:hsl(0, 0%, 50%);
+	}
+	.settings-view .config-menu .nav > li > a:hover {
+		color:hsl(0,0%, 750%)
+	}
+
+	//Settings item active color
+	.settings-view .config-menu .nav > li.active > a {
+		color:#fff;
+	}
+
+	//Setting sub-section
+	.settings-view .sub-section .sub-section-heading{
+		color:#718f91;
+	}
 
     //Tree view
-    atom-workspace .list-item {
-            //color:inherit;
-            transition: 0.3s linear;
+	atom-workspace .list-item {
+        transition: 0.3s linear;
+	}
+    atom-workspace .list-item:not(.status-modified):not(.status-added):not(:hover) {
+        color:#bfbfbf;
     }
     atom-workspace .list-item:hover {
-            color:hsl(0, 0%, 95%);
+        color:hsl(0, 0%, 95%);
     }
     atom-workspace .list-item.status-modified:hover {
-            color: hsl(23, 100%, 82%);
-    }
-    atom-workspace .list-item.status-added:hover, .status-added *:hover {
-            color: hsl(146, 100%, 72%)
+        color: hsl(23, 100%, 82%);
     }
 
-@atome-dock-color : rgba(70,70,70, 0.6);
+    atom-workspace .list-item.status-added:hover {
+        color: hsl(146, 100%, 72%)
+    }
+
+	.status-modified:not(:hover) {
+		color:#f78a46;
+	}
+	.status-added:not(:hover) {
+		color:#1fe977;
+	}
+
+    //bottom tabs
+    .grammar-status a, .grammar-status a:hover, .encoding-status a, .encoding-status a:hover, status-bar .cursor-position a, status-bar .cursor-position a:hover, status-bar a, status-bar a:hover {
+        color:hsl(0, 0%, 75%);
+    }
+
+@atome-dock-arrow-color : rgba(70,70,70, 0.7);
+
+
+
 
 //Dock arrows (> and <)
 .atom-dock-toggle-button .atom-dock-toggle-button-inner{
-    background:@atome-dock-color;
-    background-color:@atome-dock-color;
-    border: 1px solid @atome-dock-color;
+    background:@atome-dock-arrow-color;
+    background-color:@atome-dock-arrow-color;
+    border: 1px solid @atome-dock-arrow-color;
     color:rgba(200, 200, 200, 0.8);
 }
 
@@ -51,12 +418,27 @@
         margin-left:-5px;
     }
 }
+//pan resize
+.atom-dock-resize-handle{
+    position:relative;
+    z-index:3;
+}
+.atom-dock-resize-handle.left{
+    left:-5px;
+}
+.atom-dock-resize-handle.right {
+    right:-5px;
+}
+.atom-dock-resize-handle.bottom {
+    bottom:-5px;
+}
+
 //Tab Bar
 
 .tab-bar {
     background-color:rgba(255, 255, 255, 0.08);
-    transition:1s linear background-color;
     height: 22px;
+    transition:1s linear background-color;
 
     div {
         font-size:13px;
@@ -68,10 +450,14 @@
         border-right:1px black solid;
     }
     li.active {
-        background-color:rgba(255, 255, 255, 0.4);
+        background-color:hsla(174, 82%, 100%, 0.2);
+        color:hsl(0,0%,90%)
     }
 
-
+    //modified icon
+    .tab.modified:not(:hover) .close-icon {
+        border-color:hsla(151, 71%, 69%, 0.93);
+    }
 
     //Mask the cross for on unactive tabs
     .tab .close-icon {
@@ -88,7 +474,7 @@
         visibility:visible;
     }
 }
-.tab-bar[h=22px] {
+.tab-bar[h="22px"] {
     height: 22px;
     .icon::before {
         font-size:14px;
@@ -105,7 +491,7 @@
     }
 }
 
-.tab-bar[h=30px] {
+.tab-bar[h="30px"] {
     height: 30px;
     div {
         font-size:14px;
@@ -124,6 +510,195 @@
     width:1px;
 }
 
-.close-icon {
+/********************************************************/
+/*                    Git CommitView                    */
+/********************************************************/
 
+//co-authors
+.github-CommitView-coAuthorEditor {
+	color: #ccc;
+	border-color: #777;
+	background-color: #333;
 }
+
+.github-CommitView-editor {
+	border: 1px solid rgba(238, 238, 238, 0.2);
+	background-color: hsla(0, 0%, 65%, 0.2);
+	atom-text-editor {
+		color:#fff
+	}
+}
+
+.github-CommitView .hard-wrap-icons {
+    opacity:0
+}
+.github-CommitView .hard-wrap-icons:hover {
+    opacity:0
+}
+
+.github-StubItem-git-tab-controller.github-GitTabItem-root {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.github-StubItem-git.github-Git-root, .github-StubItem-github.github-GitHub-root {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+//color:
+.github-Git {
+	color: #8d8d8d;
+}
+
+.github-StagingView-group.is-focused .is-selected {
+	color:inherit;
+}
+.github-FilePatchListView-item {
+	.status-added {
+		text-shadow: 0 0 15px #1fe977;
+	}
+
+	.status-modified {
+		text-shadow: 0 0 15px #f78a46;
+	}
+}
+
+.github-StagingView:focus .github-StagingView-group.is-focused .is-selected {
+	background:rgba(126, 126, 126, 0.25);
+	color:#afafaf
+}
+
+//modifications Show
+	.github-HunkView {
+		background-color:@invisible;
+	}
+	//header
+	.github-HunkView-header {
+		background-color: rgba(221, 221, 221, 0.05);
+	}
+	//not selected
+		//line added
+		.github-HunkView-line.is-added .github-HunkView-lineContent {
+			background-color: rgba(38, 52, 38, 0.3);
+			color: hsla(146, 81%, 50%, 1);
+		}
+
+		//line removed
+		.github-HunkView-line.is-deleted .github-HunkView-lineContent {
+			background-color: rgba(61, 7, 7, 0.3);
+			color: hsla(0, 87%, 50%, 1);
+		}
+
+	//selected
+		//line added
+		.github-FilePatchView:focus .github-HunkView-line.is-added.is-selected .github-HunkView-lineContent {
+			color: #b2f1cd;
+			background-color: rgba(102, 192, 102, 0.6);
+		}
+
+		//line removed
+		.github-FilePatchView:focus .github-HunkView-line.is-deleted.is-selected .github-HunkView-lineContent {
+			color: #ffb3b3;
+			background-color: rgba(112, 40, 40, 0.6);
+		}
+
+	//number bar
+	.github-FilePatchView:focus .github-HunkView.is-selected.is-hunkMode .github-HunkView-title, .github-FilePatchView:focus .github-HunkView.is-selected.is-hunkMode .github-HunkView-header, .github-FilePatchView:focus .github-HunkView-line.is-selected .github-HunkView-lineNumber {
+		//You can add thinks if you want
+	}
+
+	.github-Accordion-content {
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+
+	.github-Accordion[open] .github-Accordion-header {
+		color:#fff
+	}
+
+/******************************************************/
+/*                       TABS                         */
+/******************************************************/
+
+	/*******************/
+	/*   GLOBAL TABS   */
+	/*******************/
+
+	.tab-bar .syntax--tab .close-icon:hover {
+		color: #ffffff;
+		background-color: #568af2;
+	}
+
+	.syntax--tab.sortable[is="tabs-tab"]:not(.texteditor) {
+		background: rgba(124, 248, 174, 0.00);
+	}
+
+	.syntax--tab.sortable.active[is="tabs-tab"]:not(.texteditor) {
+		background: rgba(124, 248, 174, 0.04);
+	}
+
+	.tab-bar .syntax--tab.active[data-type$="Editor"],
+	.tab-bar .syntax--tab.active[data-type$="AboutView"],
+	.tab-bar .syntax--tab.active[data-type$="TimecopView"],
+	.tab-bar .syntax--tab.active[data-type$="StyleguideView"],
+	.tab-bar .syntax--tab.active[data-type="MarkdownPreviewView"] {
+
+		background-color: @invisible;
+	}
+
+	li.texteditor.syntax--tab.sortable.active {
+		background-color:red;
+	}
+
+	/*****************/
+	/*   Files Tab   */
+	/*****************/
+
+	.tab-bar .syntax--tab:before {
+	    position: absolute;
+	    pointer-events: none;
+	    z-index: 2;
+	    top: 0;
+	    left: -1px;
+	    bottom: 0;
+	    width: 2px;
+	    background: rgba(0, 0, 0, 0.5);
+		transition: 0.7s
+	}
+	.tab-bar .syntax--tab:hover:before{
+		background: rgba(124, 248, 174, 0.1);
+	}
+
+	atom-pane-axis > atom-pane.active .syntax--tab.active:before, atom-pane-container > atom-pane.pane .syntax--tab.active:before {
+		background: #7cf8ae;
+	}
+	.tab-bar .syntax--tab.syntax--modified:not(:hover) .close-icon {
+	    color: rgba(124, 248, 174, 0.75);
+	}
+
+/************************************/
+/*               PANS               */
+/************************************/
+
+	.item-views {
+		background: @invisible;
+	}
+
+	.tree-view {
+		background: @invisible;
+		margin-top:-2px;
+	}
+
+	.tree-view ::-webkit-scrollbar{
+		visibility: hidden
+	}
+
+	.atom-dock-mask {
+		background: none;
+	}
+
+	.tree-view:focus .selected:before {
+    	background: rgba(58, 107, 122, 1);
+	}
+
+	.tree-view .selected:before {
+	    background: rgba(58, 107, 122, 0.53);
+	}
