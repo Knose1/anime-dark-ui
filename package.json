@@ -9,7 +9,7 @@
         "anime"
     ],
     "main" : "script/index",
-    "repository": "https://github.com/knose1/anime-dark-syntax",
+    "repository": "https://github.com/knose1/anime-dark-ui",
     "license": "MIT",
     "engines": {
         "atom": ">=1.0.0 <2.0.0"
