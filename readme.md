@@ -1,6 +1,6 @@
 # Anime dark ui for Atom editor
 ### Main
-![Screen main](./screen/main.jpg)  
+![Screen main](https://github.com/Knose1/anime-dark-ui/blob/master/screen/main.jpg?raw=true)  
 
 ### Settings
-![Screen settings](./screen/settings.JPG)
+![Screen settings](https://github.com/Knose1/anime-dark-ui/blob/master/screen/settings.JPG?raw=true)
