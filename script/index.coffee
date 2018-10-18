@@ -79,10 +79,10 @@ transElm = {
 
 setTransition = (url) ->
 
-    if (transElm.it() === null)
+    if (transElm.it() == null)
         transElm.add();
 
-    if (transElm.it() === null)
+    if (transElm.it() == null)
         return atom.notifications.addInfo("Cannot add the transition element, please restart your Atom");
 
     transTimeout = setTimeout(() ->
